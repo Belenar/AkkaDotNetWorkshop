@@ -17,7 +17,7 @@ namespace AkkaDotNet.SensorData.ActorSystemHost
 
             var config = ConfigurationReader.ReadAkkaConfigurationFile();
 
-            //TODO: start the ActorSystem & initialize the DevicesActor
+            //TODO  1: start the ActorSystem & initialize the DevicesActor
 
             Console.WriteLine("ActorSystem stopped. Press any key to exit ...");
             Console.ReadKey();

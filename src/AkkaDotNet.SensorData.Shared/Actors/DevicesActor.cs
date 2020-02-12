@@ -8,6 +8,6 @@ namespace AkkaDotNet.SensorData.Shared.Actors
 {
     public class DevicesActor 
     {
-        // TODO: Make the DevicesActor do something
+        // TODO  2: Make the DevicesActor do something
     }
 }

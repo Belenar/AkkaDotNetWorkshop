@@ -36,12 +36,12 @@ namespace AkkaDotNet.SensorData.Shared.Actors.Device
 
         private void WriteReadings(ImmutableList<NormalizedMeterReading> messageReadings, SqlConnection connection, SqlTransaction transaction)
         {
-            // TODO Write the values to the DB
+            // TODO  7: Write the values to the DB
         }
 
         private void ReplyToSender(WriteReadingsToDatabase message)
         {
-            // TODO Notify the sender of completion
+            // TODO  8: Notify the sender of completion
         }
 
 

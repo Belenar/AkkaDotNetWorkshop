@@ -20,7 +20,20 @@ namespace AkkaDotNet.SensorData.Shared.Actors.Device
 
         private void HandleReadAlertConfigurations(ReadAlertConfigurations obj)
         {
-            // TODO: read alerts from DB and notify Parent
+            using (var connection = new SqlConnection(DbSettings.HistoryConnectionString))
+            {
+                var query =
+                    "SELECT [NumberOfMinutes], [ThresholdConsumption] FROM [dbo].[PeriodicAlertConfigurations] WHERE [DeviceId] = @DeviceId";
+
+                var alerts = connection
+                    .Query(query, new { DeviceId = _deviceId })
+                    .Select(alert => new CreatePeriodicAlert(alert.NumberOfMinutes, alert.ThresholdConsumption));
+
+                foreach (var createPeriodicAlert in alerts)
+                {
+                    Context.Parent.Tell(createPeriodicAlert);
+                }
+            }
         }
 
         public static Props CreateProps(Guid deviceId)

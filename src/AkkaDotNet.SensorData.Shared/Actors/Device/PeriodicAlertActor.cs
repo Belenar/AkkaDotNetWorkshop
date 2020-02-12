@@ -23,12 +23,12 @@ namespace AkkaDotNet.SensorData.Shared.Actors.Device
             _state = new PeriodicAlertActorState(numberOfReadings);
 
             Receive<NormalizedMeterReading>(HandleNormalizedMeterReading);
-            // TODO: handle the requested state from the PersistenceActor
+            // TODO 11: handle the requested state from the PersistenceActor
         }
 
         private void HandleNormalizedMeterReading(NormalizedMeterReading message)
         {
-            //TODO: handle new message correctly and RAISE alerts
+            // TODO 12: handle new message correctly and RAISE alerts
         }
 
         public static Props CreateProps(Guid deviceId, int numberOfMinutes, decimal consumptionThreshold)
